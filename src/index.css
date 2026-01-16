@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Ocean Teal - Elegant & Professional */
+    --primary: 176 61% 19%; /* Deep Teal #134E4A */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 176 61% 40%;
+    
+    --secondary: 38 92% 50%; /* Golden Amber #F59E0B */
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 176 61% 95%; /* Light Teal Tint */
+    --accent-foreground: 176 61% 19%;
+    
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%; /* Dark Slate #0F172A */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 176 61% 19%;
+    
+    --radius: 0.75rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-elegant: 0 20px 40px -10px hsl(176 61% 19% / 0.15);
+    
+    /* Typography */
+    --font-sans: 'Manrope', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 176 61% 45%; /* Brighter Teal for Dark Mode */
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 222 47% 11%;
+    
+    --accent: 176 61% 20%;
+    --accent-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 176 61% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass {
+    @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-sm;
+  }
+  .dark .glass {
+    @apply bg-slate-900/70 border-slate-800/50;
+  }
+  .mesh-gradient {
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(176,61%,19%,0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(38,92%,50%,0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(176,61%,19%,0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(38,92%,50%,0.05) 0px, transparent 50%);
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

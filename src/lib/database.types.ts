@@ -61,6 +61,32 @@ export interface Database {
           created_at?: string
         }
       }
+      leads: {
+        Row: {
+          id: string
+          name: string
+          mobile_number: string
+          city: string
+          status: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          mobile_number: string
+          city: string
+          status?: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          mobile_number?: string
+          city?: string
+          status?: string
+          created_at?: string
+        }
+      }
     }
   }
 }

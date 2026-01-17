@@ -53,8 +53,8 @@ function Stat({ end, label, suffix = '', prefix = '', delay = 0 }: StatProps) {
   }, [isVisible, end]);
 
   return (
-    <div 
-      ref={ref} 
+    <div
+      ref={ref}
       className="text-center p-8 rounded-3xl bg-white border border-accent/50 shadow-sm hover:shadow-elegant transition-all duration-500 hover:-translate-y-1"
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -68,12 +68,12 @@ function Stat({ end, label, suffix = '', prefix = '', delay = 0 }: StatProps) {
 
 export default function Stats() {
   return (
-    <section className="py-10 px-6 relative">
+    <section className="py-8 px-6 relative bg-gradient-to-br from-purple-50 to-pink-50">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <Stat end={120} label="Photos Transformed" suffix="+" delay={0} />
-          <Stat end={48} label="Hour Turnaround" suffix="h" prefix="24–" delay={150} />
-          <Stat end={5} label="Better Visual Appeal" suffix="x" prefix="3–" delay={300} />
+          <Stat end={24} label="Delivery Time" suffix=" hrs" delay={150} />
+          <Stat end={300} label="Better Visual Appeal" suffix="%" delay={300} />
         </div>
       </div>
     </section>

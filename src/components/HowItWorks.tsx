@@ -5,7 +5,7 @@ const steps = [
   {
     icon: Upload,
     title: 'Share your listing photos',
-    description: 'Upload your property images through our simple platform or send them directly to us.',
+    description: 'Send your property images directly to us.',
   },
   {
     icon: Wand2,
@@ -15,7 +15,7 @@ const steps = [
   {
     icon: TrendingUp,
     title: 'Attract more enquiries',
-    description: 'Receive stunning photos within 24-48 hours and watch your listing engagement soar.',
+    description: 'Receive stunning photos within 24hrs and watch your listing engagement soar.',
   },
 ];
 
@@ -23,13 +23,12 @@ export default function HowItWorks() {
   const { ref, isVisible } = useScrollAnimation(0.2);
 
   return (
-    <section className="py-24 px-6 bg-white relative">
+    <section className="py-16 px-6 bg-gradient-to-br from-white to-purple-50/20 relative">
       <div className="max-w-6xl mx-auto">
         <div
           ref={ref}
-          className={`text-center mb-20 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
             How It Works
@@ -39,33 +38,27 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-accent via-secondary/30 to-accent z-0"></div>
-
+        <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div
                 key={index}
-                className={`relative bg-white rounded-3xl p-8 transition-all duration-700 hover:-translate-y-2 z-10 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+                className={`relative bg-white rounded-3xl p-8 transition-all duration-700 hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="relative w-24 h-24 mx-auto mb-8">
-                  <div className="absolute inset-0 bg-accent rounded-full opacity-20 animate-pulse"></div>
-                  <div className="absolute inset-2 bg-white rounded-full border border-accent/50 flex items-center justify-center shadow-sm z-10">
-                    <div className="bg-gradient-to-br from-primary to-primary-glow text-white p-3.5 rounded-xl shadow-lg">
-                      <Icon className="w-8 h-8" />
-                    </div>
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md z-20 border-2 border-white">
-                    {index + 1}
+                <div className="w-16 h-16 mx-auto mb-6">
+                  <div className={`text-white p-4 rounded-xl shadow-lg ${index === 0 ? 'bg-gradient-to-br from-purple-500 via-purple-600 to-pink-600' :
+                    index === 1 ? 'bg-gradient-to-br from-pink-500 via-pink-600 to-orange-500' :
+                      'bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600'
+                    }`}>
+                    <Icon className="w-8 h-8" />
                   </div>
                 </div>
-                
-                <h3 className="text-xl font-bold text-foreground mb-4 text-center">
+
+                <h3 className="text-xl font-bold text-foreground mb-4
+                  text-center">
                   {step.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-center">

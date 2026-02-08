@@ -42,6 +42,7 @@ function AdminRoute() {
   }, []);
 
   async function checkAuth() {
+    setLoading(true);
     const { data: { session } } = await supabase.auth.getSession();
 
     if (session) {
@@ -52,6 +53,8 @@ function AdminRoute() {
         .maybeSingle();
 
       setIsAuthenticated(!!adminUser);
+    } else {
+      setIsAuthenticated(false);
     }
 
     setLoading(false);

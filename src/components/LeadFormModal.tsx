@@ -26,7 +26,7 @@ export default function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
         try {
             const { error } = await supabase
                 .from('leads')
-                .insert([formData]);
+                .insert([{ ...formData, status: 'new' }]);
 
             if (error) throw error;
 

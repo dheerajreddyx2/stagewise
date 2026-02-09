@@ -1,59 +1,40 @@
-# Enhanced Vite React TypeScript Template
+# StageWise - Virtual Staging Platform
 
-This template includes built-in detection for missing CSS variables between your Tailwind config and CSS files.
+Transform your real estate listings with AI-powered virtual staging.
 
 ## Features
+- Virtual staging for residential properties
+- Admin panel for managing transformations
+- Lead generation system
+- Supabase backend integration
 
-- **CSS Variable Detection**: Automatically detects if CSS variables referenced in `tailwind.config.cjs` are defined in `src/index.css`
-- **Enhanced Linting**: Includes ESLint, Stylelint, and custom CSS variable validation
-- **Shadcn/ui**: Pre-configured with all Shadcn components
-- **Modern Stack**: Vite + React + TypeScript + Tailwind CSS
+## Live Demo
+Check out the live site at: [StageWise on Netlify](https://6989bd7a341b7cbcde071b84--dainty-mandazi-a7ddb6.netlify.app/)
 
-## Available Scripts
+## Tech Stack
+- React + TypeScript
+- Vite
+- Supabase
+- Netlify (Hosting)
 
+## Getting Started
+
+1. Install dependencies:
 ```bash
-# Run all linting (includes CSS variable check)
-npm run lint
-
-# Check only CSS variables
-npm run check:css-vars
-
-# Individual linting
-npm run lint:js    # ESLint
-npm run lint:css   # Stylelint
+npm install
 ```
 
-## CSS Variable Detection
-
-The template includes a custom script that:
-
-1. **Parses `tailwind.config.cjs`** to find all `var(--variable)` references
-2. **Parses `src/index.css`** to find all defined CSS variables (`--variable:`)
-3. **Cross-references** them to find missing definitions
-4. **Reports undefined variables** with clear error messages
-
-### Example Output
-
-When CSS variables are missing:
-```
-❌ Undefined CSS variables found in tailwind.config.cjs:
-   --sidebar-background
-   --sidebar-foreground
-   --sidebar-primary
-
-Add these variables to src/index.css
+2. Run development server:
+```bash
+npm run dev
 ```
 
-When all variables are defined:
+3. Build for production:
+```bash
+npm run build
 ```
-✅ All CSS variables in tailwind.config.cjs are defined
-```
 
-## How It Works
-
-The detection happens during the `npm run lint` command, which will:
-- Exit with error code 1 if undefined variables are found
-- Show exactly which variables need to be added to your CSS file
-- Integrate seamlessly with your development workflow
-
-This prevents runtime CSS issues where Tailwind classes reference undefined CSS variables.
+## Environment Variables
+Required environment variables in Netlify:
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`

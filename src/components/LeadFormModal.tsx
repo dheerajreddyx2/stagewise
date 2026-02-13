@@ -62,7 +62,28 @@ export default function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
                 {/* Form - Scrollable */}
                 <div className="p-6 overflow-y-auto flex-1">
                     {submitStatus === 'success' ? (
-                        <div className="text-center py-6 animate-fade-in">
+                        <div className="text-center py-6 animate-fade-in relative overflow-hidden">
+                            {/* Confetti Animation - confined to this div */}
+                            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                                {[...Array(30)].map((_, i) => (
+                                    <div
+                                        key={i}
+                                        className="absolute animate-confetti"
+                                        style={{
+                                            left: `${Math.random() * 100}%`,
+                                            top: '-10px',
+                                            width: '8px',
+                                            height: '8px',
+                                            backgroundColor: ['#9333EA', '#EC4899', '#F472B6', '#C084FC', '#FBBF24'][i % 5],
+                                            opacity: 0.8,
+                                            animationDelay: `${Math.random() * 0.3}s`,
+                                            animationDuration: `${2 + Math.random() * 1}s`,
+                                            transform: `rotate(${Math.random() * 360}deg)`,
+                                        }}
+                                    />
+                                ))}
+                            </div>
+
                             <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-purple-100 to-violet-100 rounded-full mb-3 relative">
                                 <div className="absolute inset-0 bg-purple-400/20 rounded-full animate-ping"></div>
                                 <CheckCircle2 className="w-8 h-8 text-purple-600 animate-scale-in relative z-10" />
